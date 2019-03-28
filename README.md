@@ -1,10 +1,8 @@
-# HipCamp Front End Capstone Project 
+# hip-header-with-description
 
-> Redevelop Hipcamp's booking webApp by building an "item detail page" with at least four significant and functionally unique modules ("widgets") on the page.
-
+> This module will comprise a Campsites description, host, and campers that have visited and recommended the campsite. It will also allow for the webApp visitor to post pictures and create a list to save the visited webApp's campsite if they so choose. 
 ## Related Projects
 
-  - https://github.com/bastis-angels/hip-header-with-description
   - https://github.com/bastis-angels/hip-reviews
   - https://github.com/bastis-angels/hip-the-vibe-photos
   - https://github.com/bastis-angels/booking
