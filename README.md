@@ -4,7 +4,6 @@
 
 ## Related Projects
 
-  - https://github.com/bastis-angels/hip-header-with-description
   - https://github.com/bastis-angels/hip-reviews
   - https://github.com/bastis-angels/hip-the-vibe-photos
   - https://github.com/bastis-angels/booking
@@ -17,7 +16,7 @@
 
 ## Usage
 
-> Some usage instructions
+> use 'npm start' in the root directory to start up the server. 
 
 ## Requirements
 
