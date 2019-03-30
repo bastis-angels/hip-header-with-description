@@ -1,16 +1,17 @@
-const database  = require('./index.js');
+const database = require('./index.js');
 const Camp = require('./Camp.js');
 const faker = require('faker');
 
-var sampleData = []
-for (var i = 0; i< 100; i++) {
+var sampleData = [];
+for (var i = 0; i < 100; i++) {
     var sampleObject = {
+        newId: i,
         host: faker.name.findName(),
-        hostImage: faker.image.imageURL(), 
-        body: faker.lorem.paragraph(),
+        hostImage: faker.image.avatar(), 
+        body: faker.lorem.paragraphs(),
         campers: [{ 
             name: faker.name.firstName(), 
-            image: faker.image.imageURL(), 
+            image: faker.image.avatar(), 
             votes: faker.random.boolean()
         }]
      };
@@ -19,7 +20,7 @@ for (var i = 0; i< 100; i++) {
 
 const insertSampleCamps = function() {
     Camp.create(sampleData)
-      .then(() => database.disconnect());
+      .then(() => database.disconnect()).catch((err) => console.log(err));
   };
   
 insertSampleCamps();
