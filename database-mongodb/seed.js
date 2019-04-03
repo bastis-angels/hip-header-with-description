@@ -1,14 +1,14 @@
+const faker = require('faker');
 const data = require('./index.js');
 const Camp = require('./Camp.js');
-const faker = require('faker');
 
 data.db.on('error', console.error.bind(console, 'connection error:'));
-data.db.once('open', function() {
-  console.log("connected i am connected ");
+data.db.once('open', () => {
+  console.log('connected i am connected');
 });
 
 const sampleData = [];
-for (let i = 0; i < 100; i = i + 1) {
+for (let i = 0; i < 100; i += 1) {
   const sampleObject = {
     newId: i,
     host: faker.name.findName(),
