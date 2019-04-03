@@ -1,10 +1,6 @@
 const mongoose = require('mongoose');
-const database = mongoose.connect('mongodb://localhost/seed');
-const db = mongoose.connection; 
 
-db.on('error', console.error.bind(console, 'connection error:'));
-db.once('open', function() {
-  console.log("connected");
-});
+const database = mongoose.connect('mongodb://localhost/campsites');
+const db = mongoose.connection;
 
-module.exports = database
+module.exports = { database, db };
