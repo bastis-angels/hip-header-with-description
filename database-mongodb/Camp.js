@@ -1,19 +1,19 @@
-const mongoose = require ('mongoose');
-const db = require('./index.js');
-mongoose.Promise = global.Promise;
+require('./index.js');
 
-var campSchema = new mongoose.Schema ({
-    newId: Number,
-    host: String,
-    hostImage: String,
-    body: String,
-    campers: [{ 
-      name: String, 
-      image: String, 
-      votes: Number 
-    }]
- });
+const mongoose = require('mongoose');
 
-var Camp = mongoose.model('Camp', campSchema);
+const campSchema = new mongoose.Schema({
+  newId: Number,
+  host: String,
+  hostImage: String,
+  body: String,
+  campers: [{
+    name: String,
+    image: String,
+    votes: Number,
+  }],
+});
 
-module.exports = Camp; 
+const Camp = mongoose.model('Camp', campSchema);
+
+module.exports = Camp;
