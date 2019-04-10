@@ -1,18 +1,18 @@
 const path = require('path');
 
-const SRC_DIR = path.join(__dirname, '/Client/src');
+const SRC_DIR = path.join(__dirname, 'Client/src');
 
-const DIST_DIR = path.join(__dirname, '/Client/dist');
+const DIST_DIR = path.join(__dirname, 'Public');
 
 module.exports = {
   entry: `${SRC_DIR}/index.jsx`,
   devtool: 'inline-source-map',
   output: {
-    filename: 'bundle.js',
+    filename: 'app.js',
     path: DIST_DIR,
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.jsx$/,
         include: SRC_DIR,
@@ -20,6 +20,18 @@ module.exports = {
         query: {
           presets: ['@babel/preset-react', '@babel/preset-env', 'babel-preset-airbnb'],
         },
+        
+      },
+      {
+        test: /\.(png|jpg|gif)$/i,
+        use: [
+          {
+            loader: 'url-loader',
+            options: {
+              limit: 8192
+            }
+          }
+        ]
       },
     ],
   },
