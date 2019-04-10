@@ -4,8 +4,14 @@ const mongoose = require('mongoose');
 
 const campSchema = new mongoose.Schema({
   newId: Number,
-  host: String,
-  hostImage: String,
+  campsite: { 
+    name: String,
+    verified: Boolean,
+  },
+  host: {
+    name: String,
+    image: String,
+  },
   body: String,
   campers: [{
     name: String,
