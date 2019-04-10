@@ -1,8 +1,7 @@
 import React from 'react';
-// import { BrowserRouter as Router, Route, Link } from "react-router-dom";
+import styled from 'styled-components';
 import Header from './Header.jsx';
 import Overview from './Overview.jsx';
-import styled from 'styled-components';
 
 const ListingHeader = styled.div`
 white-space: nowrap;
@@ -33,10 +32,9 @@ class App extends React.Component {
   }
 
   componentDidMount() {
-    var pathname = window.location.pathname
+    const { pathname } = window.location;
     fetch(`http://localhost:3005/campsite/${pathname.slice(-3)}`)
-      .then(response => {
-        return response.json()})
+      .then(response => response.json())
       .then((parsedJSON) => {
         this.setState({
           campId: parsedJSON[0].newId,
@@ -45,31 +43,20 @@ class App extends React.Component {
           body: parsedJSON[0].body,
           campers: parsedJSON[0].campers,
         });
-      })
-;
+      });
   }
 
   render() {
     return (
-    <div>
+      <div>
         <ListingHeader>
-            <Header campsite={this.state.campsite} campers={this.state.campers} />
+          <Header campsite={{ ...this.state }.campsite} campers={{ ...this.state }.campers} />
         </ListingHeader>
-        <Overview host={this.state.host} body={this.state.body} />
-    </div>
-   
+        <Overview host={{ ...this.state }.host} body={{ ...this.state }.body} />
+      </div>
+
     );
   }
 }
-
-// export const Routing = () =>{
-//     return(
-//         <div>
-//             <Router>
-//             <Route path="/listing/:id"  component={App} />
-//             </Router>
-//         </div>
-//     )
-// }
 
 export default App;

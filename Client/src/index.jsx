@@ -4,6 +4,4 @@ import App from './App.jsx';
 
 window.Header = App;
 
-ReactDOM.render(<App/>, document.getElementById('app'));
-
-
+ReactDOM.render(<App />, document.getElementById('app'));

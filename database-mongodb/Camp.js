@@ -4,7 +4,7 @@ const mongoose = require('mongoose');
 
 const campSchema = new mongoose.Schema({
   newId: Number,
-  campsite: { 
+  campsite: {
     name: String,
     verified: Boolean,
   },

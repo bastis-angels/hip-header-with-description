@@ -9,9 +9,9 @@ data.db.once('open', () => {
 
 const sampleData = [];
 for (let i = 0; i < 100; i += 1) {
-  let campers = []
-  let randomNumber = Math.floor(Math.random() * 20) * 5
-  for (let i = 0; i < randomNumber; i += 1){
+  const campers = [];
+  const randomNumber = Math.floor(Math.random() * 20) * 5;
+  for (let j = 0; j < randomNumber; j += 1) {
     campers.push({
       name: faker.name.firstName(),
       image: faker.image.avatar(),
@@ -22,14 +22,14 @@ for (let i = 0; i < 100; i += 1) {
     newId: i,
     campsite: {
       name: faker.lorem.words(4),
-      verified: faker.random.boolean()
+      verified: faker.random.boolean(),
     },
     host: {
       name: faker.name.findName(),
       image: faker.image.avatar(),
     },
-    body: faker.lorem.paragraphs(4,'\n'),
-    campers: campers,
+    body: faker.lorem.paragraphs(4, '\n'),
+    campers,
   };
   sampleData.push(sampleObject);
 }
