@@ -1,20 +1,18 @@
 const express = require('express');
 
+const cors = require('cors');
+
+const bodyParser = require('body-parser');
+
 const Camps = require('../database-mongodb/Camp.js');
 
 const app = express();
 
-const cors = require ('cors')
-
-const bodyParser = require('body-parser')
-
 const port = 3005;
-
 // middlewear
-app.use(cors())
-app.use(bodyParser.json())
-app.use(bodyParser.urlencoded({extended: false}))
-app.use('/camp/:id', express.static('Public'))
+app.use(cors());
+app.use(bodyParser.json());
+app.use('/camp/:id', express.static('Public'));
 app.use(express.static('Public'));
 
 app.get('/campsite/:siteId', (req, res) => {

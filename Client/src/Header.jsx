@@ -90,27 +90,27 @@ color: #757575;
 line-height: 1.2;
 font-size: 1.4rem;
 margin-right: 10px;
-`
+`;
 
 const A = styled.a`
 transition: all 0.25s ease 0s;
 color: inherit;
 text-decoration: none;
 background-color: transparent;
-`
+`;
 
 const ProfileIcons = styled.div`
 display: flex;
 align-items: center;
-`
+`;
 const IconsWrapper = styled.div`
 display: flex;
 margin-right: -11px;
-`
+`;
 
 const CounterWrapper = styled.div`
 z-index:1
-`
+`;
 
 const Counter = styled.span`
 display: flex;
@@ -123,10 +123,10 @@ font-weight: 500;
 background-color: #fff;
 border: 1px solid #ebebeb;
 padding: 0 8px;
-`
+`;
 
 const VerificationMark = styled.img.attrs({
-  src: CheckMark
+  src: CheckMark,
 })`
 width: 3%;
 vertical-align: top;
@@ -146,10 +146,11 @@ width: 38px;
 vertical-align;
 `;
 
-const Header = (props) => {
+const Header = (HeaderProps) => {
   let camperRecommendations = 0;
-  const camperAvatars = props.campers.slice(0, 4).map(element => (<Icon><Avatars src={element.image} /></Icon>));
-  props.campers.forEach((element) => {
+  const camperAvatars = HeaderProps.campers.slice(0, 4)
+    .map(element => (<Icon><Avatars src={element.image} /></Icon>));
+  HeaderProps.campers.forEach((element) => {
     if (element.votes) {
       camperRecommendations += 1;
     }
@@ -158,38 +159,46 @@ const Header = (props) => {
   return (
     <Wrapper>
       <CampName>
-          {props.campsite.name}
-          <span>
-          {props.campsite.verified ? <VerificationMark /> : null}
-          </span>
+        {HeaderProps.campsite.name}
+        <span>
+          {HeaderProps.campsite.verified ? <VerificationMark /> : null}
+        </span>
       </CampName>
 
       <RecommendedListing>
         <Left>
           <PercentageDiv>
             <Span src={Like}>
-              Likes 
+              Likes
             </Span>
             <strong>
-            {Math.floor((camperRecommendations / props.campers.length) * 100)}%
-            </strong>  
+              {Math.floor((camperRecommendations / HeaderProps.campers.length) * 100)}
+%
+            </strong>
           </PercentageDiv>
           <BasedOn>
           Recommended
-          <br/>
-          by {props.campers.length} campers
+            <br />
+          by
+            {' '}
+            {HeaderProps.campers.length}
+            {' '}
+campers
           </BasedOn>
           <A>
-              <ProfileIcons>
-                <IconsWrapper>
+            <ProfileIcons>
+              <IconsWrapper>
                 {camperAvatars}
-                </IconsWrapper>
-                <CounterWrapper>
-                  <Counter>{props.campers.length - 4}+</Counter>
-                </CounterWrapper>
-              </ProfileIcons>
-             
-          </A> 
+              </IconsWrapper>
+              <CounterWrapper>
+                <Counter>
+                  {HeaderProps.campers.length - 4}
++
+                </Counter>
+              </CounterWrapper>
+            </ProfileIcons>
+
+          </A>
         </Left>
       </RecommendedListing>
     </Wrapper>

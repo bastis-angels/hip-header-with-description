@@ -20,7 +20,6 @@ module.exports = {
         query: {
           presets: ['@babel/preset-react', '@babel/preset-env', 'babel-preset-airbnb'],
         },
-        
       },
       {
         test: /\.(png|jpg|gif)$/i,
@@ -28,10 +27,10 @@ module.exports = {
           {
             loader: 'url-loader',
             options: {
-              limit: 8192
-            }
-          }
-        ]
+              limit: 8192,
+            },
+          },
+        ],
       },
     ],
   },
