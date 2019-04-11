@@ -8,12 +8,11 @@ const Camps = require('../database-mongodb/Camp.js');
 
 const app = express();
 
-const port = 3005;
+const port = 3002;
 // middlewear
 app.use(cors());
 app.use(bodyParser.json());
-app.use('/camp/:id', express.static('Public'));
-app.use(express.static('Public'));
+app.use('/listing/:id', express.static('Public'));
 
 app.get('/campsite/:siteId', (req, res) => {
   Camps.find({ newId: req.params.siteId }).then((err, camps) => {

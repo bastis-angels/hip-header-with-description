@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 import CheckMark from '../assets/images/checked.png';
 import Like from '../assets/images/like.png';
 
