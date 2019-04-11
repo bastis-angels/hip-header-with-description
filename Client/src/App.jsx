@@ -1,5 +1,5 @@
 import React from 'react';
-import styled from 'styled-components';
+// import styled from 'styled-components';
 import Header from './Header.jsx';
 import Overview from './Overview.jsx';
 
@@ -33,7 +33,7 @@ class App extends React.Component {
 
   componentDidMount() {
     const { pathname } = window.location;
-    fetch(`http://localhost:3005/campsite/${pathname.slice(-3)}`)
+    fetch(`http://localhost:3002/campsite/${pathname.slice(9)}`)
       .then(response => response.json())
       .then((parsedJSON) => {
         this.setState({
